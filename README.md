@@ -40,7 +40,7 @@ A connection is intended to be persisted and you can perform multiple operations
 
 Note that the methods below can be called either as `server.people.xxx( arg1, arg2, ... )` or `server.xxx( 'people', arg1, arg2, ... )`.
 
-## Adding items
+### Adding items
 
 	server.people.add( {
 	    firstName: 'Aaron',
@@ -50,11 +50,32 @@ Note that the methods below can be called either as `server.people.xxx( arg1, ar
 	    // item stored
 	} );
 
-## Removing
+### Adding multiple itmes
+
+    server.people.add( {
+        firstName: 'Aaron',
+        lastName: 'Powell',
+        answer: 42
+    }, {
+        firstName : 'Morgan',
+        lastName : 'Derek',
+        answer : 10
+    } ).done( function ( item ) {
+        // item stored
+    } );
+
+### Removing
 
 	server.people.remove( 1 ).done( function ( key ) {
 	    // item removed
 	} );
+
+### Fecth Item by ID
+
+    server.people.get( 1 ).done( fuction (item) {
+        // fetched item
+    } );
+
 
 ### Clearing
 This allows removing all items in a table/collection:
